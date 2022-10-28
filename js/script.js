@@ -61,4 +61,30 @@ admin.deleteUser(uOne);
 console.log(users);
 
 
-// uOne.logIn();
+uOne.logIn();
+
+function createCircle(radius) {
+    return {
+        radius,
+        location: {
+            x: 2,
+            y: 1
+        },
+        draw: function () {
+            console.log(`the radius is ${radius}`);
+        }
+    }
+}
+
+function Circle(radius) {
+    this.radius = radius;
+    this.draw = function () {
+        console.log(`radius: ${radius}`);
+    }
+}
+
+const cirx = new Circle(3);
+cirx.draw();
+
+const circle = createCircle(33);
+circle.draw();
