@@ -23,6 +23,9 @@
 //     }
 // }
 
+// const userOne = new User('sample@gmail.com',22);
+// userOne.logIn();
+
 function User(email, age) {
     this.email = email;
     this.age = age;
