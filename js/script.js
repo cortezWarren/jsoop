@@ -26,6 +26,7 @@
 // const userOne = new User('sample@gmail.com',22);
 // userOne.logIn();
 
+// Constructor
 function User(email, age) {
     this.email = email;
     this.age = age;
@@ -66,6 +67,7 @@ console.log(users);
 
 uOne.logIn();
 
+// Factory function
 function createCircle(radius) {
     return {
         radius,
@@ -79,6 +81,7 @@ function createCircle(radius) {
     }
 }
 
+// Constructor
 function Circle(radius) {
     this.radius = radius;
     this.draw = function () {
