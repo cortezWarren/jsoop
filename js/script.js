@@ -1,30 +1,40 @@
-// class User {
-//     constructor(email, age){
-//         this.email = email;
-//         this.age = age;
-//     }
+class Userclass {
+    constructor(email, age){
+        this.email = email;
+        this.age = age;
+    }
 
-//     logIn() {
-//         console.log(this.email, 'has logged in');
-//         return this;
-//     }
-//     logOut (){
-//         console.log(this.email, 'has logged out');
-//         return this;
+    logIn() {
+        console.log(this.email, 'has logged in');
+        return this;
+    }
+    logOut (){
+        console.log(this.email, 'has logged out');
+        return this;
 
-//     }
-// }
+    }
+}
 
-// class Admin extends User{
-//     deleteUser(user){
-//         users = users.filter(u => {
-//             return u.email !== user.email;
-//         });
-//     }
-// }
+class Adminclass extends Userclass{
+    deleteUser(user){
+        classUsers = classUsers.filter(u => {
+            return u.email !== user.email;
+        });
+    }
+}
 
-// const userOne = new User('sample@gmail.com',22);
-// userOne.logIn();
+const userOne = new Userclass('sample@gmail.com',22);
+userOne.logIn();
+
+const userTwo = new Userclass('utwo@GMAIL.com',29);
+
+const adminOne = new Adminclass('am@gmail.com',23);
+let classUsers = [userOne, userTwo, adminOne]
+
+
+adminOne.deleteUser(userOne);
+console.log(classUsers);
+
 
 // Constructor
 function User(email, age) {
@@ -94,3 +104,23 @@ cirx.draw();
 
 const circle = createCircle(33);
 circle.draw();
+
+// es5
+const vehicle = {
+    speed: function(speed){
+        return `${speed} mph`;
+    }
+}
+
+const bike = Object.create(vehicle);
+bike.brand = 'kawasaki';
+
+console.log(bike.brand);
+
+const car = Object.create(vehicle, {
+    brand: {value: 'lamborghini'},
+    model: {value: 'huracan'}
+});
+
+console.log(car.speed(300));
+console.log(car.brand);
