@@ -23,6 +23,23 @@ class Adminclass extends Userclass{
     }
 }
 
+class SuperAdmin extends Userclass {
+    constructor(email, age, fullname){
+        super(email, age);
+        this.fname = fullname;
+    }
+
+    static Away(email) {
+        const fullname = email.fname;
+        return `${fullname} is not available`;
+    }
+}
+
+const superAdminOne = new SuperAdmin('super@yahoo.com', 26, 'Zeno');
+// console.log(superAdminOne);
+// console.log(superAdminOne.Away());
+console.log(SuperAdmin.Away(superAdminOne));
+
 const userOne = new Userclass('sample@gmail.com',22);
 userOne.logIn();
 
