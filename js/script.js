@@ -120,15 +120,22 @@ function createCircle(radius) {
 function Circle(radius) {
     this.radius = radius;
 
+    let newLocation = {x: 2, y: 3};
+
     let defaultLocation = function (pos){
         console.log(`my location: ${pos}`);
         locationVal.innerHTML = `value input: ${pos}`;
+    }
+
+    this.currentLocation = function(){
+        return console.log(newLocation);
     }
 
     this.draw = function () {
         defaultLocation(text.value);
         console.log(`radius: ${radius}, location: ${text.value}`);
     }
+
 }
 
 const form = document.querySelector('#location');
@@ -139,6 +146,7 @@ form.addEventListener('submit', (e) => {
  const text = form.querySelector('#text');
  const cirx = new Circle(3);
  cirx.draw();
+ cirx.currentLocation();
 
 //  for (const key in cirx) {
 //     if (typeof cirx[key] !== 'function' ) {
@@ -147,6 +155,8 @@ form.addEventListener('submit', (e) => {
 // }
 
 });
+
+
 
 // const keyss = Object.keys(cirx);
 // console.log(keyss);
