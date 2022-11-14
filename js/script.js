@@ -1,11 +1,17 @@
+
 class Userclass {
     constructor(email, age){
         this.email = email;
         this.age = age;
     }
 
+    inMeeting(){
+        console.log(`${this.email} is in a meeting`);
+    }
+
     logIn() {
-        console.log(this.email, 'has logged in');
+        console.log(this.email, `has logged in`);
+        this.inMeeting();
         return this;
     }
     logOut (){
@@ -48,6 +54,8 @@ const userTwo = new Userclass('utwo@GMAIL.com',29);
 const adminOne = new Adminclass('am@gmail.com',23);
 let classUsers = [userOne, userTwo, adminOne]
 
+const keys = Object.keys(superAdminOne);
+console.log('keys => ',keys);
 
 adminOne.deleteUser(userOne);
 console.log(classUsers);
@@ -111,13 +119,38 @@ function createCircle(radius) {
 // Constructor
 function Circle(radius) {
     this.radius = radius;
+
+    let defaultLocation = function (pos){
+        console.log(`my location: ${pos}`);
+        locationVal.innerHTML = `value input: ${pos}`;
+    }
+
     this.draw = function () {
-        console.log(`radius: ${radius}`);
+        defaultLocation(text.value);
+        console.log(`radius: ${radius}, location: ${text.value}`);
     }
 }
 
-const cirx = new Circle(3);
-cirx.draw();
+const form = document.querySelector('#location');
+const locationVal = document.querySelector('.output');
+
+form.addEventListener('submit', (e) => {
+ e.preventDefault();
+ const text = form.querySelector('#text');
+ const cirx = new Circle(3);
+ cirx.draw();
+
+//  for (const key in cirx) {
+//     if (typeof cirx[key] !== 'function' ) {
+//         console.log('forin: ',cirx[key]);
+//     }
+// }
+
+});
+
+// const keyss = Object.keys(cirx);
+// console.log(keyss);
+
 
 const circle = createCircle(33);
 circle.draw();
